@@ -266,3 +266,77 @@ if (audioPlayer) {
 // Initialize
 updateTrackInfo();
 
+// Mobile Menu Toggle
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+if (mobileMenuToggle && navMenu) {
+  mobileMenuToggle.addEventListener("click", () => {
+    mobileMenuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    document.body.style.overflow = navMenu.classList.contains("active")
+      ? "hidden"
+      : "";
+  });
+
+  // Close menu when clicking on a link
+  navMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenuToggle.classList.remove("active");
+      navMenu.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      navMenu.classList.contains("active") &&
+      !navMenu.contains(e.target) &&
+      !mobileMenuToggle.contains(e.target)
+    ) {
+      mobileMenuToggle.classList.remove("active");
+      navMenu.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+}
+
+// Touch event optimization for carousel
+if (carousel) {
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0 && nextBtn) {
+        // Swipe left - next
+        nextBtn.click();
+      } else if (diff < 0 && prevBtn) {
+        // Swipe right - previous
+        prevBtn.click();
+      }
+    }
+  }
+}
+
+// Prevent parallax on mobile for better performance
+if (window.innerWidth <= 768) {
+  memberItems.forEach((item) => {
+    item.removeEventListener("mousemove", () => {});
+    item.removeEventListener("mouseleave", () => {});
+  });
+}
+
