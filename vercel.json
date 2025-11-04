@@ -1,14 +1,27 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*\\.html)",
-      "destination": "/$1"
+      "src": "**/*.html",
+      "use": "@vercel/static"
     },
     {
-      "source": "/",
-      "destination": "/index.html"
+      "src": "**/*.{css,js,png,jpg,jpeg,gif,svg,woff,woff2}",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*\\.(png|jpg|jpeg|gif|svg|css|js|woff|woff2))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
