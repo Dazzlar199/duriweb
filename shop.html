@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - DURI Entertainment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="public/images/logo4.png" alt="DURI ENT." />
+          <span class="logo-text">DURI ENT.</span>
+        </a>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="project.html">Project: LIV U</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="vote.html">Vote & Missions</a></li>
+          <li><a href="live.html">Live</a></li>
+          <li><a href="music.html">Music & Video</a></li>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content">
+        <h2>Shop</h2>
+        <div style="max-width: 1400px; margin: 0 auto;">
+          <div class="shop-categories">
+            <button class="category-btn active" data-category="all">전체</button>
+            <button class="category-btn" data-category="physical">굿즈</button>
+            <button class="category-btn" data-category="digital">디지털</button>
+            <button class="category-btn" data-category="album">앨범</button>
+          </div>
+
+          <div class="shop-grid">
+            <div class="shop-item" data-category="physical">
+              <div class="shop-image"></div>
+              <div class="shop-info">
+                <h4>LIV U 공식 티셔츠</h4>
+                <p class="shop-price">₩45,000</p>
+                <button class="shop-btn">구매하기</button>
+              </div>
+            </div>
+
+            <div class="shop-item" data-category="physical">
+              <div class="shop-image"></div>
+              <div class="shop-info">
+                <h4>LIV U 포스터 세트</h4>
+                <p class="shop-price">₩25,000</p>
+                <button class="shop-btn">구매하기</button>
+              </div>
+            </div>
+
+            <div class="shop-item" data-category="digital">
+              <div class="shop-image"></div>
+              <div class="shop-info">
+                <h4>디지털 포토카드 세트</h4>
+                <p class="shop-price">₩9,900</p>
+                <button class="shop-btn">구매하기</button>
+              </div>
+            </div>
+
+            <div class="shop-item" data-category="digital">
+              <div class="shop-image"></div>
+              <div class="shop-info">
+                <h4>배경화면 패키지</h4>
+                <p class="shop-price">₩4,900</p>
+                <button class="shop-btn">구매하기</button>
+              </div>
+            </div>
+
+            <div class="shop-item" data-category="album">
+              <div class="shop-image"></div>
+              <div class="shop-info">
+                <h4>Live With U 싱글 앨범</h4>
+                <p class="shop-price">₩18,000</p>
+                <button class="shop-btn">구매하기</button>
+              </div>
+            </div>
+
+            <div class="shop-item" data-category="digital">
+              <div class="shop-image"></div>
+              <div class="shop-info">
+                <h4>팬북 (디지털)</h4>
+                <p class="shop-price">₩12,900</p>
+                <button class="shop-btn">구매하기</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shipping-info">
+            <h3>배송 정보</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <h4>국내 배송</h4>
+                <p>3-5일 소요</p>
+                <p>배송비: ₩3,000 (₩50,000 이상 무료)</p>
+              </div>
+              <div class="info-item">
+                <h4>해외 배송</h4>
+                <p>7-14일 소요</p>
+                <p>배송비: 국가별 상이</p>
+              </div>
+              <div class="info-item">
+                <h4>디지털 상품</h4>
+                <p>구매 후 즉시 다운로드</p>
+                <p>배송비 없음</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 DURI Entertainment. All Rights Reserved.</p>
+        <p>
+          법인명: DURI ENT. | 주소: 서울특별시 광진구 자양로 217-1, 지하1층,
+          5층, 6층 (구의동)
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Category filter
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      const shopItems = document.querySelectorAll('.shop-item');
+
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.getAttribute('data-category');
+          
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          shopItems.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+

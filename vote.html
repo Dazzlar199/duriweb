@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vote & Missions - DURI Entertainment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="public/images/logo4.png" alt="DURI ENT." />
+          <span class="logo-text">DURI ENT.</span>
+        </a>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="project.html">Project: LIV U</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="vote.html">Vote & Missions</a></li>
+          <li><a href="live.html">Live</a></li>
+          <li><a href="music.html">Music & Video</a></li>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content">
+        <h2>Vote & Missions</h2>
+        <div style="max-width: 1200px; margin: 0 auto;">
+          <div class="vote-tabs">
+            <button class="tab-btn active" data-tab="ongoing">진행중</button>
+            <button class="tab-btn" data-tab="upcoming">예정</button>
+            <button class="tab-btn" data-tab="completed">종료</button>
+          </div>
+
+          <div class="tab-content active" id="ongoing">
+            <div class="mission-list">
+              <div class="mission-card">
+                <div class="mission-header">
+                  <span class="mission-badge">진행중</span>
+                  <span class="mission-date">2025.01.15 - 2025.01.30</span>
+                </div>
+                <h3>다음 라이브 콘셉트 투표</h3>
+                <p>LIV U의 다음 라이브 스트리밍 콘셉트를 선택해주세요.</p>
+                <div class="vote-options">
+                  <div class="vote-option">
+                    <label>
+                      <input type="radio" name="live-concept" value="acoustic" />
+                      <span>Acoustic Session</span>
+                    </label>
+                  </div>
+                  <div class="vote-option">
+                    <label>
+                      <input type="radio" name="live-concept" value="dance" />
+                      <span>Dance Performance</span>
+                    </label>
+                  </div>
+                  <div class="vote-option">
+                    <label>
+                      <input type="radio" name="live-concept" value="chat" />
+                      <span>Fan Chat Time</span>
+                    </label>
+                  </div>
+                </div>
+                <button class="vote-submit-btn">투표하기</button>
+              </div>
+
+              <div class="mission-card">
+                <div class="mission-header">
+                  <span class="mission-badge">진행중</span>
+                  <span class="mission-date">2025.01.10 - 2025.02.10</span>
+                </div>
+                <h3>미션: 해시태그 챌린지</h3>
+                <p>#LIVUWithU 해시태그와 함께 응원 메시지를 남겨주세요!</p>
+                <div class="mission-stats">
+                  <span>참여자: 1,234명</span>
+                  <span>목표: 5,000명</span>
+                </div>
+                <button class="mission-btn">참여하기</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="upcoming">
+            <div class="mission-list">
+              <div class="mission-card">
+                <div class="mission-header">
+                  <span class="mission-badge upcoming">예정</span>
+                  <span class="mission-date">2025.02.01 시작</span>
+                </div>
+                <h3>커버곡 선택 투표</h3>
+                <p>LIV U가 다음에 커버할 곡을 선택해주세요.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="completed">
+            <div class="mission-list">
+              <div class="mission-card">
+                <div class="mission-header">
+                  <span class="mission-badge completed">종료</span>
+                  <span class="mission-date">2025.01.01 - 2025.01.10</span>
+                </div>
+                <h3>데뷔 싱글 제목 투표</h3>
+                <p>최종 선택: "Live With U"</p>
+                <div class="result-stats">
+                  <span>총 투표수: 15,678표</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rewards-section">
+            <h3>리워드</h3>
+            <div class="rewards-grid">
+              <div class="reward-item">
+                <div class="reward-badge reward-gold">
+                  <svg class="reward-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- D shape (outer) -->
+                    <path d="M20 20 L20 100 L50 100 L50 80 L30 80 L30 40 L50 40 L50 20 Z" fill="currentColor" opacity="0.95"/>
+                    <!-- R shape (inner) -->
+                    <path d="M30 30 L30 70 L45 70 L55 60 L55 50 L45 50 L45 40 L30 40 Z" fill="currentColor" opacity="0.95"/>
+                    <path d="M45 50 L60 50 L60 60 L45 60 Z" fill="currentColor" opacity="0.95"/>
+                    <path d="M45 60 L60 70 L60 80 L45 70 Z" fill="currentColor" opacity="0.95"/>
+                  </svg>
+                </div>
+                <h4>최고 참여자</h4>
+                <p>특별 굿즈 세트</p>
+              </div>
+              <div class="reward-item">
+                <div class="reward-badge reward-silver">
+                  <svg class="reward-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- D shape (outer) -->
+                    <path d="M20 20 L20 100 L50 100 L50 80 L30 80 L30 40 L50 40 L50 20 Z" fill="currentColor" opacity="0.95"/>
+                    <!-- R shape (inner) -->
+                    <path d="M30 30 L30 70 L45 70 L55 60 L55 50 L45 50 L45 40 L30 40 Z" fill="currentColor" opacity="0.95"/>
+                    <path d="M45 50 L60 50 L60 60 L45 60 Z" fill="currentColor" opacity="0.95"/>
+                    <path d="M45 60 L60 70 L60 80 L45 70 Z" fill="currentColor" opacity="0.95"/>
+                  </svg>
+                </div>
+                <h4>활발한 참여자</h4>
+                <p>디지털 포토카드</p>
+              </div>
+              <div class="reward-item">
+                <div class="reward-badge reward-bronze">
+                  <svg class="reward-logo" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- D shape (outer) -->
+                    <path d="M20 20 L20 100 L50 100 L50 80 L30 80 L30 40 L50 40 L50 20 Z" fill="currentColor" opacity="0.95"/>
+                    <!-- R shape (inner) -->
+                    <path d="M30 30 L30 70 L45 70 L55 60 L55 50 L45 50 L45 40 L30 40 Z" fill="currentColor" opacity="0.95"/>
+                    <path d="M45 50 L60 50 L60 60 L45 60 Z" fill="currentColor" opacity="0.95"/>
+                    <path d="M45 60 L60 70 L60 80 L45 70 Z" fill="currentColor" opacity="0.95"/>
+                  </svg>
+                </div>
+                <h4>모든 참여자</h4>
+                <p>배경화면 다운로드</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 DURI Entertainment. All Rights Reserved.</p>
+        <p>
+          법인명: DURI ENT. | 주소: 서울특별시 광진구 자양로 217-1, 지하1층,
+          5층, 6층 (구의동)
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Tab functionality
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.getAttribute('data-tab');
+          
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          btn.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+
+      // Vote functionality
+      const voteSubmitBtns = document.querySelectorAll('.vote-submit-btn');
+      voteSubmitBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selected = btn.closest('.mission-card').querySelector('input[type="radio"]:checked');
+          if (selected) {
+            alert('투표가 완료되었습니다! 감사합니다.');
+          } else {
+            alert('옵션을 선택해주세요.');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music & Video - DURI Entertainment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="public/images/logo4.png" alt="DURI ENT." />
+          <span class="logo-text">DURI ENT.</span>
+        </a>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="project.html">Project: LIV U</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="vote.html">Vote & Missions</a></li>
+          <li><a href="live.html">Live</a></li>
+          <li><a href="music.html">Music & Video</a></li>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content">
+        <h2>Music & Video</h2>
+        <div style="max-width: 1400px; margin: 0 auto;">
+          <div class="video-section">
+            <h3>Music Videos</h3>
+            <div class="video-tabs">
+              <button class="tab-btn active" data-tab="visual">비주얼형</button>
+              <button class="tab-btn" data-tab="story">스토리형</button>
+            </div>
+
+            <div class="tab-content active" id="visual">
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                  </div>
+                  <h4>Live With U (Visual MV)</h4>
+                  <p>데뷔 싱글 - 비주얼 중심의 퍼포먼스 영상</p>
+                  <div class="video-info">
+                    <span>2025.03.20</span>
+                    <span>YouTube</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-content" id="story">
+              <div class="video-grid">
+                <div class="video-card">
+                  <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                  </div>
+                  <h4>Live With U (Story MV)</h4>
+                  <p>데뷔 싱글 - 멤버들의 서사를 담은 스토리 영상</p>
+                  <div class="video-info">
+                    <span>2025.03.20</span>
+                    <span>YouTube</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="music-catalog">
+            <h3>Discography</h3>
+            <div class="album-list">
+              <div class="album-card">
+                <div class="album-cover"></div>
+                <div class="album-info">
+                  <h4>Live With U</h4>
+                  <p>Single · 2025.03.01</p>
+                  <div class="album-tracks">
+                    <div class="track-item">
+                      <span class="track-num">1</span>
+                      <span class="track-name">Live With U</span>
+                      <span class="track-duration">3:45</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="behind-section">
+            <h3>Behind the Scenes</h3>
+            <div class="behind-grid">
+              <div class="behind-item">
+                <div class="behind-thumbnail">
+                  <div class="play-overlay">▶</div>
+                </div>
+                <h4>MV Making Film</h4>
+                <p>2025.03.15</p>
+              </div>
+              <div class="behind-item">
+                <div class="behind-thumbnail">
+                  <div class="play-overlay">▶</div>
+                </div>
+                <h4>Recording Behind</h4>
+                <p>2025.02.20</p>
+              </div>
+              <div class="behind-item">
+                <div class="behind-thumbnail">
+                  <div class="play-overlay">▶</div>
+                </div>
+                <h4>Choreography Practice</h4>
+                <p>2025.02.10</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 DURI Entertainment. All Rights Reserved.</p>
+        <p>
+          법인명: DURI ENT. | 주소: 서울특별시 광진구 자양로 217-1, 지하1층,
+          5층, 6층 (구의동)
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Tab functionality
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.getAttribute('data-tab');
+          
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          btn.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>
+
