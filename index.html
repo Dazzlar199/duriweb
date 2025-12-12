@@ -314,7 +314,200 @@
       }
 
       footer p {
-        margin-bottom: 2px;
+        margin-bottom: 0;
+      }
+
+      /* 오디션 모달 */
+      .audition-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .audition-modal.active {
+        display: flex;
+      }
+
+      .modal-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        position: relative;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 40px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: modalSlideUp 0.3s ease-out;
+      }
+
+      @keyframes modalSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #999;
+        transition: color 0.2s;
+      }
+
+      .modal-close:hover {
+        color: #000;
+      }
+
+      .modal-content h2 {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+        text-align: center;
+      }
+
+      .modal-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+
+      .audition-form .form-group {
+        margin-bottom: 20px;
+      }
+
+      .audition-form label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: #333;
+      }
+
+      .audition-form input,
+      .audition-form select,
+      .audition-form textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: inherit;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .audition-form input:focus,
+      .audition-form select:focus,
+      .audition-form textarea:focus {
+        outline: none;
+        border-color: #000;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+      }
+
+      .audition-form textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 15px;
+      }
+
+      .form-row .form-group {
+        flex: 1;
+      }
+
+      .checkbox-group {
+        margin-top: 10px;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .checkbox-label input {
+        width: auto;
+        margin-top: 2px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        margin-top: 10px;
+      }
+
+      .submit-btn:hover {
+        background: #333;
+        transform: translateY(-1px);
+      }
+
+      .form-success {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .success-icon {
+        width: 60px;
+        height: 60px;
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        margin: 0 auto 20px;
+      }
+
+      .form-success h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .form-success p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
       }
 
       /* 반응형 */
@@ -437,13 +630,7 @@
       </button>
 
       <ul class="nav-menu">
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">PROJECT</a></li>
-        <li><a href="#">MEMBERS</a></li>
-        <li><a href="#">VOTE & MISSIONS</a></li>
-        <li><a href="#">LIVE</a></li>
-        <li><a href="#">MUSIC & VIDEO</a></li>
-        <li><a href="#">SHOP</a></li>
+        <li><a href="#" id="audition-link">VIRTUAL AUDITION</a></li>
       </ul>
 
       <div class="language-selector">
@@ -482,63 +669,138 @@
     </div>
 
     <footer>
-      <p>DURI Entertainment</p>
-      <p class="footer-info"></p>
-      <p class="footer-address"></p>
+      <p>ⓒDURI Entertainment ALL RIGHTS RESERVED.</p>
     </footer>
 
+    <!-- 오디션 지원 모달 -->
+    <div class="audition-modal" id="auditionModal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <h2>VIRTUAL AUDITION</h2>
+        <p class="modal-subtitle">DURI Entertainment 버추얼 아이돌 오디션</p>
+
+        <form id="auditionForm" class="audition-form">
+          <div class="form-group">
+            <label for="name">이름 *</label>
+            <input type="text" id="name" name="name" required placeholder="실명을 입력해주세요">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthdate">생년월일 *</label>
+              <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">성별 *</label>
+              <select id="gender" name="gender" required>
+                <option value="">선택</option>
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+                <option value="other">기타</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">이메일 *</label>
+            <input type="email" id="email" name="email" required placeholder="example@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">연락처 *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="talent">지원 분야 *</label>
+            <select id="talent" name="talent" required>
+              <option value="">선택해주세요</option>
+              <option value="vocal">보컬</option>
+              <option value="dance">댄스</option>
+              <option value="rap">랩</option>
+              <option value="multi">멀티 (복수 선택)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">경력 및 자기소개 *</label>
+            <textarea id="experience" name="experience" rows="4" required placeholder="본인의 경력, 특기, 지원 동기 등을 자유롭게 작성해주세요"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="portfolio">포트폴리오 링크 (선택)</label>
+            <input type="url" id="portfolio" name="portfolio" placeholder="YouTube, Instagram 등 링크">
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              <span>개인정보 수집 및 이용에 동의합니다 *</span>
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">지원하기</button>
+        </form>
+
+        <div class="form-success" id="formSuccess" style="display: none;">
+          <div class="success-icon">✓</div>
+          <h3>지원이 완료되었습니다!</h3>
+          <p>소중한 지원에 감사드립니다.<br>검토 후 개별 연락드리겠습니다.</p>
+        </div>
+      </div>
+    </div>
+
     <script>
-      // 다국어 텍스트
-      const translations = {
-        ko: {
-          menu: ['ABOUT', 'PROJECT', 'MEMBERS', 'VOTE & MISSIONS', 'LIVE', 'MUSIC & VIDEO', 'SHOP'],
-          info: '사업자번호: 000-00-00000 | 대표: OOO',
-          address: '서울특별시 광진구 자양로 217-1, 지하1층, 5층, 6층 (구의동)'
-        },
-        en: {
-          menu: ['ABOUT', 'PROJECT', 'MEMBERS', 'VOTE & MISSIONS', 'LIVE', 'MUSIC & VIDEO', 'SHOP'],
-          info: 'Business Reg: 000-00-00000 | CEO: OOO',
-          address: '217-1 Jayang-ro, Gwangjin-gu, Seoul, South Korea (B1F, 5F, 6F)'
-        },
-        zh: {
-          menu: ['关于', '项目', '成员', '投票&任务', '直播', '音乐&视频', '商店'],
-          info: '营业执照号: 000-00-00000 | 代表: OOO',
-          address: '首尔特别市广津区紫阳路217-1, 地下1层, 5层, 6层 (九宜洞)'
-        },
-        ja: {
-          menu: ['紹介', 'プロジェクト', 'メンバー', '投票&ミッション', 'ライブ', '音楽&動画', 'ショップ'],
-          info: '事業者番号: 000-00-00000 | 代表: OOO',
-          address: 'ソウル特別市広津区紫陽路217-1, 地下1階, 5階, 6階 (九宜洞)'
-        }
-      };
+      // 오디션 모달
+      const auditionLink = document.getElementById('audition-link');
+      const auditionModal = document.getElementById('auditionModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalOverlay = document.querySelector('.modal-overlay');
+      const auditionForm = document.getElementById('auditionForm');
+      const formSuccess = document.getElementById('formSuccess');
 
-      const flags = {
-        ko: '🇰🇷',
-        en: '🇺🇸',
-        zh: '🇨🇳',
-        ja: '🇯🇵'
-      };
+      // 모달 열기
+      auditionLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        auditionModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
 
-      let currentLang = 'ko';
-
-      // 언어 변경 함수
-      function changeLanguage(lang) {
-        currentLang = lang;
-        const texts = translations[lang];
-
-        // 플래그 변경
-        document.querySelector('.current-flag').textContent = flags[lang];
-
-        // 메뉴 텍스트 변경
-        const menuItems = document.querySelectorAll('.nav-menu a');
-        menuItems.forEach((item, index) => {
-          item.textContent = texts.menu[index];
-        });
-
-        // 푸터 텍스트 변경
-        document.querySelector('.footer-info').textContent = texts.info;
-        document.querySelector('.footer-address').textContent = texts.address;
+      // 모달 닫기
+      function closeModal() {
+        auditionModal.classList.remove('active');
+        document.body.style.overflow = '';
       }
+
+      modalClose.addEventListener('click', closeModal);
+      modalOverlay.addEventListener('click', closeModal);
+
+      // ESC 키로 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // 폼 제출
+      auditionForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // 폼 데이터 수집 (실제로는 서버로 전송)
+        const formData = new FormData(auditionForm);
+        console.log('오디션 지원 데이터:', Object.fromEntries(formData));
+
+        // 성공 메시지 표시
+        auditionForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+
+        // 3초 후 모달 닫기
+        setTimeout(() => {
+          closeModal();
+          auditionForm.style.display = 'block';
+          formSuccess.style.display = 'none';
+          auditionForm.reset();
+        }, 3000);
+      });
 
       // 언어 드롭다운 토글
       const langBtn = document.querySelector('.language-btn');
@@ -549,12 +811,12 @@
         langDropdown.classList.toggle('active');
       });
 
-      // 언어 선택
+      // 언어 선택 (플래그만 변경)
       document.querySelectorAll('.language-dropdown a').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          const lang = link.getAttribute('data-lang');
-          changeLanguage(lang);
+          const flag = link.querySelector('.flag').textContent;
+          document.querySelector('.current-flag').textContent = flag;
           langDropdown.classList.remove('active');
         });
       });
@@ -571,9 +833,6 @@
       mobileToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
       });
-
-      // 초기 언어 설정
-      changeLanguage('ko');
     </script>
   </body>
 </html>
