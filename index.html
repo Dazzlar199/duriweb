@@ -937,12 +937,14 @@
       const auditionForm = document.getElementById("auditionForm");
       const formSuccess = document.getElementById("formSuccess");
 
-      // 모달 열기
-      auditionLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        auditionModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      });
+      // 모달 열기 (audition-link가 존재하는 경우에만)
+      if (auditionLink) {
+        auditionLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          auditionModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      }
 
       // 모달 닫기
       function closeModal() {
@@ -950,8 +952,12 @@
         document.body.style.overflow = "";
       }
 
-      modalClose.addEventListener("click", closeModal);
-      modalOverlay.addEventListener("click", closeModal);
+      if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+      }
+      if (modalOverlay) {
+        modalOverlay.addEventListener("click", closeModal);
+      }
 
       // ESC 키로 닫기
       document.addEventListener("keydown", (e) => {
@@ -969,7 +975,8 @@
       }
 
       // 폼 제출 - 이메일 전송
-      auditionForm.addEventListener("submit", (e) => {
+      if (auditionForm) {
+        auditionForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
         // 폼 데이터 수집
@@ -1090,16 +1097,19 @@
           auditionForm.reset();
           changeLanguage(currentLang); // 언어 다시 적용
         }, 3000);
-      });
+        });
+      }
 
       // 언어 드롭다운 토글
       const langBtn = document.querySelector(".language-btn");
       const langDropdown = document.querySelector(".language-dropdown");
 
-      langBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        langDropdown.classList.toggle("active");
-      });
+      if (langBtn && langDropdown) {
+        langBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          langDropdown.classList.toggle("active");
+        });
+      }
 
       // 다국어 번역 데이터
       const translations = {
@@ -1274,9 +1284,11 @@
       });
 
       // 외부 클릭시 드롭다운 닫기
-      document.addEventListener("click", () => {
-        langDropdown.classList.remove("active");
-      });
+      if (langDropdown) {
+        document.addEventListener("click", () => {
+          langDropdown.classList.remove("active");
+        });
+      }
 
       // 모바일 메뉴 토글
       const mobileToggle = document.querySelector(".mobile-menu-toggle");
