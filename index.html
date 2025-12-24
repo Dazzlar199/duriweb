@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DURI Entertainment</title>
+    <link rel="icon" type="image/png" href="/public/images/logo4.png" />
+    <link rel="shortcut icon" type="image/png" href="/public/images/logo4.png" />
+    <link rel="apple-touch-icon" href="/public/images/logo4.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,14 +20,15 @@
         box-sizing: border-box;
       }
 
-      html, body {
+      html,
+      body {
         height: 100%;
       }
 
       body {
         background-color: #000000;
         color: #ffffff;
-        font-family: 'Inter', 'Noto Sans KR', sans-serif;
+        font-family: "Inter", "Noto Sans KR", sans-serif;
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
@@ -116,7 +120,7 @@
       }
 
       .nav-menu li:not(:last-child)::after {
-        content: '/';
+        content: "/";
         margin: 0 16px;
         color: #cccccc;
         font-size: 14px;
@@ -154,7 +158,7 @@
       }
 
       .language-btn::after {
-        content: '';
+        content: "";
         width: 0;
         height: 0;
         border-left: 4px solid transparent;
@@ -171,7 +175,7 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         display: none;
         min-width: 120px;
         overflow: hidden;
@@ -307,7 +311,7 @@
       }
 
       .main-btn::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: -100%;
@@ -726,7 +730,7 @@
     <!-- 배경 영상 -->
     <div class="video-background">
       <video autoplay muted loop playsinline>
-        <source src="/public/mainproj_v5.mp4" type="video/mp4">
+        <source src="/public/mainproj_v5.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="video-overlay"></div>
@@ -774,8 +778,15 @@
 
     <div class="container">
       <div class="main-buttons">
-        <a href="https://www.youtube.com/@DURIENT" target="_blank" class="main-btn">YOUTUBE</a>
-        <a href="#" id="audition-btn-main" class="main-btn primary">VIRTUAL AUDITION</a>
+        <a
+          href="https://www.youtube.com/@DURIENT"
+          target="_blank"
+          class="main-btn"
+          >YOUTUBE</a
+        >
+        <a href="#" id="audition-btn-main" class="main-btn primary"
+          >VIRTUAL AUDITION</a
+        >
       </div>
     </div>
 
@@ -789,18 +800,29 @@
       <div class="modal-content">
         <button class="modal-close" id="modalClose">&times;</button>
         <h2>VIRTUAL AUDITION</h2>
-        <p class="modal-subtitle" data-i18n="modal.subtitle">DURI Entertainment 버추얼 아이돌 오디션</p>
+        <p class="modal-subtitle" data-i18n="modal.subtitle">
+          DURI Entertainment 버추얼 아이돌 오디션
+        </p>
 
         <form id="auditionForm" class="audition-form">
           <div class="form-group">
             <label for="name" data-i18n="form.name">이름 *</label>
-            <input type="text" id="name" name="name" required data-i18n-placeholder="form.namePlaceholder" placeholder="실명을 입력해주세요">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              data-i18n-placeholder="form.namePlaceholder"
+              placeholder="실명을 입력해주세요"
+            />
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="birthdate" data-i18n="form.birthdate">생년월일 *</label>
-              <input type="date" id="birthdate" name="birthdate" required>
+              <label for="birthdate" data-i18n="form.birthdate"
+                >생년월일 *</label
+              >
+              <input type="date" id="birthdate" name="birthdate" required />
             </div>
             <div class="form-group">
               <label for="gender" data-i18n="form.gender">성별 *</label>
@@ -815,294 +837,391 @@
 
           <div class="form-group">
             <label for="email" data-i18n="form.email">이메일 *</label>
-            <input type="email" id="email" name="email" required placeholder="example@email.com">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="example@email.com"
+            />
           </div>
 
           <div class="form-group">
             <label for="phone" data-i18n="form.phone">연락처 *</label>
-            <input type="tel" id="phone" name="phone" required data-i18n-placeholder="form.phonePlaceholder" placeholder="010-0000-0000">
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              data-i18n-placeholder="form.phonePlaceholder"
+              placeholder="010-0000-0000"
+            />
           </div>
 
           <div class="form-group">
             <label for="talent" data-i18n="form.talent">지원 분야 *</label>
             <select id="talent" name="talent" required>
-              <option value="" data-i18n="form.selectTalent">선택해주세요</option>
+              <option value="" data-i18n="form.selectTalent">
+                선택해주세요
+              </option>
               <option value="vocal" data-i18n="form.vocal">보컬</option>
               <option value="dance" data-i18n="form.dance">댄스</option>
               <option value="rap" data-i18n="form.rap">랩</option>
-              <option value="multi" data-i18n="form.multi">멀티 (복수 선택)</option>
+              <option value="multi" data-i18n="form.multi">
+                멀티 (복수 선택)
+              </option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="experience" data-i18n="form.experience">경력 및 자기소개 *</label>
-            <textarea id="experience" name="experience" rows="4" required data-i18n-placeholder="form.experiencePlaceholder" placeholder="본인의 경력, 특기, 지원 동기 등을 자유롭게 작성해주세요"></textarea>
+            <label for="experience" data-i18n="form.experience"
+              >경력 및 자기소개 *</label
+            >
+            <textarea
+              id="experience"
+              name="experience"
+              rows="4"
+              required
+              data-i18n-placeholder="form.experiencePlaceholder"
+              placeholder="본인의 경력, 특기, 지원 동기 등을 자유롭게 작성해주세요"
+            ></textarea>
           </div>
 
           <div class="form-group">
-            <label for="portfolio" data-i18n="form.portfolio">포트폴리오 링크 (선택)</label>
-            <input type="url" id="portfolio" name="portfolio" data-i18n-placeholder="form.portfolioPlaceholder" placeholder="YouTube, Instagram 등 링크">
+            <label for="portfolio" data-i18n="form.portfolio"
+              >포트폴리오 링크 (선택)</label
+            >
+            <input
+              type="url"
+              id="portfolio"
+              name="portfolio"
+              data-i18n-placeholder="form.portfolioPlaceholder"
+              placeholder="YouTube, Instagram 등 링크"
+            />
           </div>
 
           <div class="form-group checkbox-group">
             <label class="checkbox-label">
-              <input type="checkbox" id="privacy" name="privacy" required>
-              <span data-i18n="form.privacy">개인정보 수집 및 이용에 동의합니다 *</span>
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <span data-i18n="form.privacy"
+                >개인정보 수집 및 이용에 동의합니다 *</span
+              >
             </label>
           </div>
 
-          <button type="submit" class="submit-btn" data-i18n="form.submit">지원하기</button>
+          <button type="submit" class="submit-btn" data-i18n="form.submit">
+            지원하기
+          </button>
         </form>
 
-        <div class="form-success" id="formSuccess" style="display: none;">
+        <div class="form-success" id="formSuccess" style="display: none">
           <div class="success-icon">✓</div>
           <h3 data-i18n="success.title">지원이 완료되었습니다!</h3>
-          <p data-i18n="success.message">소중한 지원에 감사드립니다.<br>검토 후 개별 연락드리겠습니다.</p>
+          <p data-i18n="success.message">
+            소중한 지원에 감사드립니다.<br />검토 후 개별 연락드리겠습니다.
+          </p>
         </div>
       </div>
     </div>
 
     <script>
       // 오디션 모달
-      const auditionLink = document.getElementById('audition-link');
-      const auditionModal = document.getElementById('auditionModal');
-      const modalClose = document.getElementById('modalClose');
-      const modalOverlay = document.querySelector('.modal-overlay');
-      const auditionForm = document.getElementById('auditionForm');
-      const formSuccess = document.getElementById('formSuccess');
+      const auditionLink = document.getElementById("audition-link");
+      const auditionModal = document.getElementById("auditionModal");
+      const modalClose = document.getElementById("modalClose");
+      const modalOverlay = document.querySelector(".modal-overlay");
+      const auditionForm = document.getElementById("auditionForm");
+      const formSuccess = document.getElementById("formSuccess");
 
       // 모달 열기
-      auditionLink.addEventListener('click', (e) => {
+      auditionLink.addEventListener("click", (e) => {
         e.preventDefault();
-        auditionModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        auditionModal.classList.add("active");
+        document.body.style.overflow = "hidden";
       });
 
       // 모달 닫기
       function closeModal() {
-        auditionModal.classList.remove('active');
-        document.body.style.overflow = '';
+        auditionModal.classList.remove("active");
+        document.body.style.overflow = "";
       }
 
-      modalClose.addEventListener('click', closeModal);
-      modalOverlay.addEventListener('click', closeModal);
+      modalClose.addEventListener("click", closeModal);
+      modalOverlay.addEventListener("click", closeModal);
 
       // ESC 키로 닫기
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
       });
 
       // 메인 버튼 클릭 시 모달 열기
-      const auditionBtnMain = document.getElementById('audition-btn-main');
+      const auditionBtnMain = document.getElementById("audition-btn-main");
       if (auditionBtnMain) {
-        auditionBtnMain.addEventListener('click', (e) => {
+        auditionBtnMain.addEventListener("click", (e) => {
           e.preventDefault();
-          auditionModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
+          auditionModal.classList.add("active");
+          document.body.style.overflow = "hidden";
         });
       }
 
       // 폼 제출 - 이메일 전송
-      auditionForm.addEventListener('submit', (e) => {
+      auditionForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
         // 폼 데이터 수집
         const formData = new FormData(auditionForm);
         const data = Object.fromEntries(formData);
         const t = translations[currentLang] || translations.ko;
-        
+
         // 이메일 본문 작성 (현재 언어에 맞춰)
         const emailSubjects = {
-          ko: '버추얼 아이돌 오디션 지원',
-          en: 'Virtual Idol Audition Application',
-          zh: '虚拟偶像试镜申请',
-          ja: 'バーチャルアイドルオーディション応募'
+          ko: "버추얼 아이돌 오디션 지원",
+          en: "Virtual Idol Audition Application",
+          zh: "虚拟偶像试镜申请",
+          ja: "バーチャルアイドルオーディション応募",
         };
-        
+
         const genderLabels = {
-          ko: { male: '남성', female: '여성', other: '기타' },
-          en: { male: 'Male', female: 'Female', other: 'Other' },
-          zh: { male: '男性', female: '女性', other: '其他' },
-          ja: { male: '男性', female: '女性', other: 'その他' }
+          ko: { male: "남성", female: "여성", other: "기타" },
+          en: { male: "Male", female: "Female", other: "Other" },
+          zh: { male: "男性", female: "女性", other: "其他" },
+          ja: { male: "男性", female: "女性", other: "その他" },
         };
-        
+
         const talentLabels = {
-          ko: { vocal: '보컬', dance: '댄스', rap: '랩', multi: '멀티' },
-          en: { vocal: 'Vocal', dance: 'Dance', rap: 'Rap', multi: 'Multi' },
-          zh: { vocal: '声乐', dance: '舞蹈', rap: '说唱', multi: '多才艺' },
-          ja: { vocal: 'ボーカル', dance: 'ダンス', rap: 'ラップ', multi: 'マルチ' }
+          ko: { vocal: "보컬", dance: "댄스", rap: "랩", multi: "멀티" },
+          en: { vocal: "Vocal", dance: "Dance", rap: "Rap", multi: "Multi" },
+          zh: { vocal: "声乐", dance: "舞蹈", rap: "说唱", multi: "多才艺" },
+          ja: {
+            vocal: "ボーカル",
+            dance: "ダンス",
+            rap: "ラップ",
+            multi: "マルチ",
+          },
         };
-        
+
         const fieldLabels = {
-          ko: { name: '이름', birthdate: '생년월일', gender: '성별', email: '이메일', phone: '연락처', talent: '지원 분야', experience: '경력 및 자기소개', portfolio: '포트폴리오 링크' },
-          en: { name: 'Name', birthdate: 'Date of Birth', gender: 'Gender', email: 'Email', phone: 'Phone Number', talent: 'Application Field', experience: 'Experience & Self-Introduction', portfolio: 'Portfolio Link' },
-          zh: { name: '姓名', birthdate: '出生日期', gender: '性别', email: '电子邮件', phone: '联系电话', talent: '申请领域', experience: '经历及自我介绍', portfolio: '作品集链接' },
-          ja: { name: 'お名前', birthdate: '生年月日', gender: '性別', email: 'メールアドレス', phone: '連絡先電話番号', talent: '応募分野', experience: '経歴及び自己紹介', portfolio: 'ポートフォリオリンク' }
+          ko: {
+            name: "이름",
+            birthdate: "생년월일",
+            gender: "성별",
+            email: "이메일",
+            phone: "연락처",
+            talent: "지원 분야",
+            experience: "경력 및 자기소개",
+            portfolio: "포트폴리오 링크",
+          },
+          en: {
+            name: "Name",
+            birthdate: "Date of Birth",
+            gender: "Gender",
+            email: "Email",
+            phone: "Phone Number",
+            talent: "Application Field",
+            experience: "Experience & Self-Introduction",
+            portfolio: "Portfolio Link",
+          },
+          zh: {
+            name: "姓名",
+            birthdate: "出生日期",
+            gender: "性别",
+            email: "电子邮件",
+            phone: "联系电话",
+            talent: "申请领域",
+            experience: "经历及自我介绍",
+            portfolio: "作品集链接",
+          },
+          ja: {
+            name: "お名前",
+            birthdate: "生年月日",
+            gender: "性別",
+            email: "メールアドレス",
+            phone: "連絡先電話番号",
+            talent: "応募分野",
+            experience: "経歴及び自己紹介",
+            portfolio: "ポートフォリオリンク",
+          },
         };
-        
-        const emailSubject = encodeURIComponent(emailSubjects[currentLang] || emailSubjects.ko);
+
+        const emailSubject = encodeURIComponent(
+          emailSubjects[currentLang] || emailSubjects.ko
+        );
         const fields = fieldLabels[currentLang] || fieldLabels.ko;
         const genders = genderLabels[currentLang] || genderLabels.ko;
         const talents = talentLabels[currentLang] || talentLabels.ko;
-        
+
         let emailBody = `${emailSubjects[currentLang] || emailSubjects.ko}\n\n`;
         emailBody += `${fields.name}: ${data.name}\n`;
         emailBody += `${fields.birthdate}: ${data.birthdate}\n`;
-        emailBody += `${fields.gender}: ${genders[data.gender] || data.gender}\n`;
+        emailBody += `${fields.gender}: ${
+          genders[data.gender] || data.gender
+        }\n`;
         emailBody += `${fields.email}: ${data.email}\n`;
         emailBody += `${fields.phone}: ${data.phone}\n`;
-        emailBody += `${fields.talent}: ${talents[data.talent] || data.talent}\n`;
+        emailBody += `${fields.talent}: ${
+          talents[data.talent] || data.talent
+        }\n`;
         emailBody += `${fields.experience}:\n${data.experience}\n`;
         if (data.portfolio) {
           emailBody += `${fields.portfolio}: ${data.portfolio}\n`;
         }
-        
+
         // mailto: 링크 생성
-        const mailtoLink = `mailto:durienter@naver.com?subject=${emailSubject}&body=${encodeURIComponent(emailBody)}`;
-        
+        const mailtoLink = `mailto:durienter@naver.com?subject=${emailSubject}&body=${encodeURIComponent(
+          emailBody
+        )}`;
+
         // 이메일 클라이언트 열기
         window.location.href = mailtoLink;
 
         // 성공 메시지 표시
-        auditionForm.style.display = 'none';
-        formSuccess.style.display = 'block';
+        auditionForm.style.display = "none";
+        formSuccess.style.display = "block";
 
         // 3초 후 모달 닫기
         setTimeout(() => {
           closeModal();
-          auditionForm.style.display = 'block';
-          formSuccess.style.display = 'none';
+          auditionForm.style.display = "block";
+          formSuccess.style.display = "none";
           auditionForm.reset();
           changeLanguage(currentLang); // 언어 다시 적용
         }, 3000);
       });
 
       // 언어 드롭다운 토글
-      const langBtn = document.querySelector('.language-btn');
-      const langDropdown = document.querySelector('.language-dropdown');
+      const langBtn = document.querySelector(".language-btn");
+      const langDropdown = document.querySelector(".language-dropdown");
 
-      langBtn.addEventListener('click', (e) => {
+      langBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        langDropdown.classList.toggle('active');
+        langDropdown.classList.toggle("active");
       });
 
       // 다국어 번역 데이터
       const translations = {
         ko: {
-          'modal.subtitle': 'DURI Entertainment 버추얼 아이돌 오디션',
-          'form.name': '이름 *',
-          'form.namePlaceholder': '실명을 입력해주세요',
-          'form.birthdate': '생년월일 *',
-          'form.gender': '성별 *',
-          'form.select': '선택',
-          'form.male': '남성',
-          'form.female': '여성',
-          'form.other': '기타',
-          'form.email': '이메일 *',
-          'form.phone': '연락처 *',
-          'form.phonePlaceholder': '010-0000-0000',
-          'form.talent': '지원 분야 *',
-          'form.selectTalent': '선택해주세요',
-          'form.vocal': '보컬',
-          'form.dance': '댄스',
-          'form.rap': '랩',
-          'form.multi': '멀티 (복수 선택)',
-          'form.experience': '경력 및 자기소개 *',
-          'form.experiencePlaceholder': '본인의 경력, 특기, 지원 동기 등을 자유롭게 작성해주세요',
-          'form.portfolio': '포트폴리오 링크 (선택)',
-          'form.portfolioPlaceholder': 'YouTube, Instagram 등 링크',
-          'form.privacy': '개인정보 수집 및 이용에 동의합니다 *',
-          'form.submit': '지원하기',
-          'success.title': '지원이 완료되었습니다!',
-          'success.message': '소중한 지원에 감사드립니다.<br>검토 후 개별 연락드리겠습니다.'
+          "modal.subtitle": "DURI Entertainment 버추얼 아이돌 오디션",
+          "form.name": "이름 *",
+          "form.namePlaceholder": "실명을 입력해주세요",
+          "form.birthdate": "생년월일 *",
+          "form.gender": "성별 *",
+          "form.select": "선택",
+          "form.male": "남성",
+          "form.female": "여성",
+          "form.other": "기타",
+          "form.email": "이메일 *",
+          "form.phone": "연락처 *",
+          "form.phonePlaceholder": "010-0000-0000",
+          "form.talent": "지원 분야 *",
+          "form.selectTalent": "선택해주세요",
+          "form.vocal": "보컬",
+          "form.dance": "댄스",
+          "form.rap": "랩",
+          "form.multi": "멀티 (복수 선택)",
+          "form.experience": "경력 및 자기소개 *",
+          "form.experiencePlaceholder":
+            "본인의 경력, 특기, 지원 동기 등을 자유롭게 작성해주세요",
+          "form.portfolio": "포트폴리오 링크 (선택)",
+          "form.portfolioPlaceholder": "YouTube, Instagram 등 링크",
+          "form.privacy": "개인정보 수집 및 이용에 동의합니다 *",
+          "form.submit": "지원하기",
+          "success.title": "지원이 완료되었습니다!",
+          "success.message":
+            "소중한 지원에 감사드립니다.<br>검토 후 개별 연락드리겠습니다.",
         },
         en: {
-          'modal.subtitle': 'DURI Entertainment Virtual Idol Audition',
-          'form.name': 'Name *',
-          'form.namePlaceholder': 'Please enter your real name',
-          'form.birthdate': 'Date of Birth *',
-          'form.gender': 'Gender *',
-          'form.select': 'Select',
-          'form.male': 'Male',
-          'form.female': 'Female',
-          'form.other': 'Other',
-          'form.email': 'Email *',
-          'form.phone': 'Phone Number *',
-          'form.phonePlaceholder': '010-0000-0000',
-          'form.talent': 'Application Field *',
-          'form.selectTalent': 'Please select',
-          'form.vocal': 'Vocal',
-          'form.dance': 'Dance',
-          'form.rap': 'Rap',
-          'form.multi': 'Multi (Multiple)',
-          'form.experience': 'Experience & Self-Introduction *',
-          'form.experiencePlaceholder': 'Please write about your experience, skills, and motivation for applying',
-          'form.portfolio': 'Portfolio Link (Optional)',
-          'form.portfolioPlaceholder': 'YouTube, Instagram, etc.',
-          'form.privacy': 'I agree to the collection and use of personal information *',
-          'form.submit': 'Submit Application',
-          'success.title': 'Application Submitted!',
-          'success.message': 'Thank you for your application.<br>We will contact you individually after review.'
+          "modal.subtitle": "DURI Entertainment Virtual Idol Audition",
+          "form.name": "Name *",
+          "form.namePlaceholder": "Please enter your real name",
+          "form.birthdate": "Date of Birth *",
+          "form.gender": "Gender *",
+          "form.select": "Select",
+          "form.male": "Male",
+          "form.female": "Female",
+          "form.other": "Other",
+          "form.email": "Email *",
+          "form.phone": "Phone Number *",
+          "form.phonePlaceholder": "010-0000-0000",
+          "form.talent": "Application Field *",
+          "form.selectTalent": "Please select",
+          "form.vocal": "Vocal",
+          "form.dance": "Dance",
+          "form.rap": "Rap",
+          "form.multi": "Multi (Multiple)",
+          "form.experience": "Experience & Self-Introduction *",
+          "form.experiencePlaceholder":
+            "Please write about your experience, skills, and motivation for applying",
+          "form.portfolio": "Portfolio Link (Optional)",
+          "form.portfolioPlaceholder": "YouTube, Instagram, etc.",
+          "form.privacy":
+            "I agree to the collection and use of personal information *",
+          "form.submit": "Submit Application",
+          "success.title": "Application Submitted!",
+          "success.message":
+            "Thank you for your application.<br>We will contact you individually after review.",
         },
         zh: {
-          'modal.subtitle': 'DURI Entertainment 虚拟偶像试镜',
-          'form.name': '姓名 *',
-          'form.namePlaceholder': '请输入真实姓名',
-          'form.birthdate': '出生日期 *',
-          'form.gender': '性别 *',
-          'form.select': '选择',
-          'form.male': '男性',
-          'form.female': '女性',
-          'form.other': '其他',
-          'form.email': '电子邮件 *',
-          'form.phone': '联系电话 *',
-          'form.phonePlaceholder': '010-0000-0000',
-          'form.talent': '申请领域 *',
-          'form.selectTalent': '请选择',
-          'form.vocal': '声乐',
-          'form.dance': '舞蹈',
-          'form.rap': '说唱',
-          'form.multi': '多才艺（多项）',
-          'form.experience': '经历及自我介绍 *',
-          'form.experiencePlaceholder': '请自由填写您的经历、特长、申请动机等',
-          'form.portfolio': '作品集链接（可选）',
-          'form.portfolioPlaceholder': 'YouTube、Instagram等链接',
-          'form.privacy': '我同意收集和使用个人信息 *',
-          'form.submit': '提交申请',
-          'success.title': '申请已完成！',
-          'success.message': '感谢您的申请。<br>我们将在审核后单独联系您。'
+          "modal.subtitle": "DURI Entertainment 虚拟偶像试镜",
+          "form.name": "姓名 *",
+          "form.namePlaceholder": "请输入真实姓名",
+          "form.birthdate": "出生日期 *",
+          "form.gender": "性别 *",
+          "form.select": "选择",
+          "form.male": "男性",
+          "form.female": "女性",
+          "form.other": "其他",
+          "form.email": "电子邮件 *",
+          "form.phone": "联系电话 *",
+          "form.phonePlaceholder": "010-0000-0000",
+          "form.talent": "申请领域 *",
+          "form.selectTalent": "请选择",
+          "form.vocal": "声乐",
+          "form.dance": "舞蹈",
+          "form.rap": "说唱",
+          "form.multi": "多才艺（多项）",
+          "form.experience": "经历及自我介绍 *",
+          "form.experiencePlaceholder": "请自由填写您的经历、特长、申请动机等",
+          "form.portfolio": "作品集链接（可选）",
+          "form.portfolioPlaceholder": "YouTube、Instagram等链接",
+          "form.privacy": "我同意收集和使用个人信息 *",
+          "form.submit": "提交申请",
+          "success.title": "申请已完成！",
+          "success.message": "感谢您的申请。<br>我们将在审核后单独联系您。",
         },
         ja: {
-          'modal.subtitle': 'DURI Entertainment バーチャルアイドルオーディション',
-          'form.name': 'お名前 *',
-          'form.namePlaceholder': '本名を入力してください',
-          'form.birthdate': '生年月日 *',
-          'form.gender': '性別 *',
-          'form.select': '選択',
-          'form.male': '男性',
-          'form.female': '女性',
-          'form.other': 'その他',
-          'form.email': 'メールアドレス *',
-          'form.phone': '連絡先電話番号 *',
-          'form.phonePlaceholder': '010-0000-0000',
-          'form.talent': '応募分野 *',
-          'form.selectTalent': '選択してください',
-          'form.vocal': 'ボーカル',
-          'form.dance': 'ダンス',
-          'form.rap': 'ラップ',
-          'form.multi': 'マルチ（複数選択）',
-          'form.experience': '経歴及び自己紹介 *',
-          'form.experiencePlaceholder': 'ご自身の経歴、特技、応募動機などを自由に記入してください',
-          'form.portfolio': 'ポートフォリオリンク（任意）',
-          'form.portfolioPlaceholder': 'YouTube、Instagramなどのリンク',
-          'form.privacy': '個人情報の収集及び利用に同意します *',
-          'form.submit': '応募する',
-          'success.title': '応募が完了しました！',
-          'success.message': 'ご応募ありがとうございます。<br>審査後、個別にご連絡いたします。'
-        }
+          "modal.subtitle":
+            "DURI Entertainment バーチャルアイドルオーディション",
+          "form.name": "お名前 *",
+          "form.namePlaceholder": "本名を入力してください",
+          "form.birthdate": "生年月日 *",
+          "form.gender": "性別 *",
+          "form.select": "選択",
+          "form.male": "男性",
+          "form.female": "女性",
+          "form.other": "その他",
+          "form.email": "メールアドレス *",
+          "form.phone": "連絡先電話番号 *",
+          "form.phonePlaceholder": "010-0000-0000",
+          "form.talent": "応募分野 *",
+          "form.selectTalent": "選択してください",
+          "form.vocal": "ボーカル",
+          "form.dance": "ダンス",
+          "form.rap": "ラップ",
+          "form.multi": "マルチ（複数選択）",
+          "form.experience": "経歴及び自己紹介 *",
+          "form.experiencePlaceholder":
+            "ご自身の経歴、特技、応募動機などを自由に記入してください",
+          "form.portfolio": "ポートフォリオリンク（任意）",
+          "form.portfolioPlaceholder": "YouTube、Instagramなどのリンク",
+          "form.privacy": "個人情報の収集及び利用に同意します *",
+          "form.submit": "応募する",
+          "success.title": "応募が完了しました！",
+          "success.message":
+            "ご応募ありがとうございます。<br>審査後、個別にご連絡いたします。",
+        },
       };
 
-      let currentLang = 'ko';
+      let currentLang = "ko";
 
       // 언어 변경 함수
       function changeLanguage(lang) {
@@ -1110,10 +1229,10 @@
         const t = translations[lang] || translations.ko;
 
         // data-i18n 속성이 있는 모든 요소 업데이트
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const key = el.getAttribute('data-i18n');
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
           if (t[key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
               // placeholder는 별도 처리
             } else {
               el.textContent = t[key];
@@ -1122,16 +1241,16 @@
         });
 
         // placeholder 업데이트
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-          const key = el.getAttribute('data-i18n-placeholder');
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
           if (t[key]) {
             el.placeholder = t[key];
           }
         });
 
         // option 태그 업데이트
-        document.querySelectorAll('option[data-i18n]').forEach(option => {
-          const key = option.getAttribute('data-i18n');
+        document.querySelectorAll("option[data-i18n]").forEach((option) => {
+          const key = option.getAttribute("data-i18n");
           if (t[key]) {
             option.textContent = t[key];
           }
@@ -1139,28 +1258,28 @@
       }
 
       // 언어 선택 (플래그 변경 + 번역 적용)
-      document.querySelectorAll('.language-dropdown a').forEach(link => {
-        link.addEventListener('click', (e) => {
+      document.querySelectorAll(".language-dropdown a").forEach((link) => {
+        link.addEventListener("click", (e) => {
           e.preventDefault();
-          const lang = link.getAttribute('data-lang');
-          const flag = link.querySelector('.flag').textContent;
-          document.querySelector('.current-flag').textContent = flag;
-          langDropdown.classList.remove('active');
+          const lang = link.getAttribute("data-lang");
+          const flag = link.querySelector(".flag").textContent;
+          document.querySelector(".current-flag").textContent = flag;
+          langDropdown.classList.remove("active");
           changeLanguage(lang);
         });
       });
 
       // 외부 클릭시 드롭다운 닫기
-      document.addEventListener('click', () => {
-        langDropdown.classList.remove('active');
+      document.addEventListener("click", () => {
+        langDropdown.classList.remove("active");
       });
 
       // 모바일 메뉴 토글
-      const mobileToggle = document.querySelector('.mobile-menu-toggle');
-      const navMenu = document.querySelector('.nav-menu');
+      const mobileToggle = document.querySelector(".mobile-menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
 
-      mobileToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+      mobileToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
       });
     </script>
   </body>
