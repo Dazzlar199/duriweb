@@ -12,6 +12,10 @@
       "dest": "/public/$1"
     },
     {
+      "src": "/(.*\\.(mp4|jpg|jpeg|png|gif|svg|css|js))",
+      "dest": "/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }
