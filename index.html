@@ -87,12 +87,6 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      @media (max-width: 768px) {
-        header {
-          padding: 12px 15px;
-        }
-      }
-
       /* 로고 (좌측) */
       .header-logo {
         display: flex;
@@ -113,42 +107,9 @@
         letter-spacing: 2px;
       }
 
-      /* 네비게이션 (가운데) */
+      /* 네비게이션 (가운데) - index.html에서는 사용하지 않음 */
       .nav-menu {
-        display: flex;
-        gap: 0;
-        list-style: none;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        align-items: center;
-      }
-
-      .nav-menu li {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-menu li:not(:last-child)::after {
-        content: "/";
-        margin: 0 16px;
-        color: #cccccc;
-        font-size: 14px;
-        font-weight: 300;
-      }
-
-      .nav-menu a {
-        font-size: 14px;
-        font-weight: 500;
-        color: #ffffff;
-        text-decoration: none;
-        letter-spacing: 0.5px;
-        transition: color 0.3s ease;
-        white-space: nowrap;
-      }
-
-      .nav-menu a:hover {
-        color: #cccccc;
+        display: none;
       }
 
       /* 언어 설정 (우측) */
@@ -217,26 +178,6 @@
         font-size: 18px;
       }
 
-      /* 모바일 메뉴 토글 */
-      .mobile-menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 8px;
-        z-index: 101;
-        position: relative;
-      }
-
-      .mobile-menu-toggle span {
-        width: 24px;
-        height: 2px;
-        background: #ffffff;
-        transition: all 0.3s ease;
-        border-radius: 2px;
-      }
 
       /* 메인 컨테이너 */
       .container {
@@ -620,26 +561,7 @@
       }
 
       /* 반응형 */
-      @media (max-width: 1200px) {
-        .nav-menu li:not(:last-child)::after {
-          margin: 0 12px;
-        }
-
-        .nav-menu a {
-          font-size: 12px;
-        }
-      }
-
       @media (max-width: 1024px) {
-        .nav-menu li:not(:last-child)::after {
-          margin: 0 10px;
-          font-size: 12px;
-        }
-
-        .nav-menu a {
-          font-size: 11px;
-        }
-
         .coming-soon {
           font-size: 36px;
           letter-spacing: 14px;
@@ -647,71 +569,8 @@
       }
 
       @media (max-width: 768px) {
-        .mobile-menu-toggle {
-          display: flex;
-          min-width: 44px;
-          min-height: 44px;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-          transform: rotate(45deg) translate(7px, 7px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .nav-menu {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.98);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 0;
-          padding: 80px 20px 20px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-          transform: translateX(100%);
-          opacity: 0;
-          transition: transform 0.3s ease, opacity 0.3s ease;
-          z-index: 100;
-          overflow-y: auto;
-        }
-
-        .nav-menu.active {
-          transform: translateX(0);
-          opacity: 1;
-        }
-
-        .nav-menu li {
-          width: 100%;
-          text-align: center;
-        }
-
-        .nav-menu li:not(:last-child)::after {
-          display: none;
-        }
-
-        .nav-menu a {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 18px 20px;
-          font-size: 16px;
-          width: 100%;
-          text-align: center;
-          min-height: 44px;
+        header {
+          padding: 15px 20px;
         }
 
         .header-logo img {
@@ -772,21 +631,7 @@
         <span>DURI ENT.</span>
       </a>
 
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <ul class="nav-menu">
-        <li><a href="about.html">About</a></li>
-        <li><a href="project.html">Project: LIV U</a></li>
-        <li><a href="members.html">Members</a></li>
-        <li><a href="vote.html">Vote & Missions</a></li>
-        <li><a href="live.html">Live</a></li>
-        <li><a href="music.html">Music & Video</a></li>
-        <li><a href="shop.html">Shop</a></li>
-      </ul>
+      <ul class="nav-menu" style="display: none"></ul>
 
       <div class="language-selector">
         <button class="language-btn" aria-label="Select language">
@@ -1325,40 +1170,6 @@
         });
       }
 
-      // 모바일 메뉴 토글
-      const mobileToggle = document.querySelector(".mobile-menu-toggle");
-      const navMenu = document.querySelector(".nav-menu");
-
-      if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const isActive = navMenu.classList.toggle("active");
-          mobileToggle.classList.toggle("active", isActive);
-          document.body.style.overflow = isActive ? "hidden" : "";
-        });
-
-        // 메뉴 링크 클릭시 메뉴 닫기
-        navMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            mobileToggle.classList.remove("active");
-            document.body.style.overflow = "";
-          });
-        });
-
-        // 외부 클릭시 메뉴 닫기
-        document.addEventListener("click", (e) => {
-          if (
-            navMenu.classList.contains("active") &&
-            !navMenu.contains(e.target) &&
-            !mobileToggle.contains(e.target)
-          ) {
-            navMenu.classList.remove("active");
-            mobileToggle.classList.remove("active");
-            document.body.style.overflow = "";
-          }
-        });
-      }
     </script>
   </body>
 </html>
