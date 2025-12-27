@@ -87,6 +87,12 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
+      @media (max-width: 768px) {
+        header {
+          padding: 12px 15px;
+        }
+      }
+
       /* 로고 (좌측) */
       .header-logo {
         display: flex;
@@ -159,6 +165,9 @@
         display: flex;
         align-items: center;
         gap: 5px;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
       }
 
       .language-btn::after {
@@ -216,7 +225,9 @@
         background: none;
         border: none;
         cursor: pointer;
-        padding: 5px;
+        padding: 8px;
+        z-index: 101;
+        position: relative;
       }
 
       .mobile-menu-toggle span {
@@ -224,6 +235,7 @@
         height: 2px;
         background: #ffffff;
         transition: all 0.3s ease;
+        border-radius: 2px;
       }
 
       /* 메인 컨테이너 */
@@ -635,33 +647,50 @@
       }
 
       @media (max-width: 768px) {
-        header {
-          padding: 15px 20px;
-        }
-
         .mobile-menu-toggle {
           display: flex;
+          min-width: 44px;
+          min-height: 44px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .nav-menu {
           position: fixed;
-          top: 60px;
+          top: 0;
           left: 0;
           right: 0;
-          background: rgba(0, 0, 0, 0.95);
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.98);
           backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           flex-direction: column;
           align-items: center;
+          justify-content: flex-start;
           gap: 0;
-          padding: 20px;
+          padding: 80px 20px 20px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-          transform: translateX(-50%) translateY(-150%);
+          transform: translateX(100%);
           opacity: 0;
-          transition: all 0.3s ease;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+          z-index: 100;
+          overflow-y: auto;
         }
 
         .nav-menu.active {
-          transform: translateX(-50%) translateY(0);
+          transform: translateX(0);
           opacity: 1;
         }
 
@@ -675,9 +704,14 @@
         }
 
         .nav-menu a {
-          display: block;
-          padding: 15px;
-          font-size: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 18px 20px;
+          font-size: 16px;
+          width: 100%;
+          text-align: center;
+          min-height: 44px;
         }
 
         .header-logo img {
@@ -711,18 +745,9 @@
         }
 
         .video-background video {
-          width: 90%;
-          height: 90%;
-        }
-
-        .coming-soon {
-          font-size: 32px;
-          letter-spacing: 12px;
-        }
-
-        .coming-soon::after {
-          bottom: -15px;
-          width: 200px;
+          width: 50%;
+          height: 50%;
+          object-fit: contain;
         }
 
         footer {
@@ -753,7 +778,15 @@
         <span></span>
       </button>
 
-      <ul class="nav-menu" style="display: none"></ul>
+      <ul class="nav-menu">
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Project: LIV U</a></li>
+        <li><a href="members.html">Members</a></li>
+        <li><a href="vote.html">Vote & Missions</a></li>
+        <li><a href="live.html">Live</a></li>
+        <li><a href="music.html">Music & Video</a></li>
+        <li><a href="shop.html">Shop</a></li>
+      </ul>
 
       <div class="language-selector">
         <button class="language-btn" aria-label="Select language">
@@ -977,126 +1010,128 @@
       // 폼 제출 - 이메일 전송
       if (auditionForm) {
         auditionForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+          e.preventDefault();
 
-        // 폼 데이터 수집
-        const formData = new FormData(auditionForm);
-        const data = Object.fromEntries(formData);
-        const t = translations[currentLang] || translations.ko;
+          // 폼 데이터 수집
+          const formData = new FormData(auditionForm);
+          const data = Object.fromEntries(formData);
+          const t = translations[currentLang] || translations.ko;
 
-        // 이메일 본문 작성 (현재 언어에 맞춰)
-        const emailSubjects = {
-          ko: "버추얼 아이돌 오디션 지원",
-          en: "Virtual Idol Audition Application",
-          zh: "虚拟偶像试镜申请",
-          ja: "バーチャルアイドルオーディション応募",
-        };
+          // 이메일 본문 작성 (현재 언어에 맞춰)
+          const emailSubjects = {
+            ko: "버추얼 아이돌 오디션 지원",
+            en: "Virtual Idol Audition Application",
+            zh: "虚拟偶像试镜申请",
+            ja: "バーチャルアイドルオーディション応募",
+          };
 
-        const genderLabels = {
-          ko: { male: "남성", female: "여성", other: "기타" },
-          en: { male: "Male", female: "Female", other: "Other" },
-          zh: { male: "男性", female: "女性", other: "其他" },
-          ja: { male: "男性", female: "女性", other: "その他" },
-        };
+          const genderLabels = {
+            ko: { male: "남성", female: "여성", other: "기타" },
+            en: { male: "Male", female: "Female", other: "Other" },
+            zh: { male: "男性", female: "女性", other: "其他" },
+            ja: { male: "男性", female: "女性", other: "その他" },
+          };
 
-        const talentLabels = {
-          ko: { vocal: "보컬", dance: "댄스", rap: "랩", multi: "멀티" },
-          en: { vocal: "Vocal", dance: "Dance", rap: "Rap", multi: "Multi" },
-          zh: { vocal: "声乐", dance: "舞蹈", rap: "说唱", multi: "多才艺" },
-          ja: {
-            vocal: "ボーカル",
-            dance: "ダンス",
-            rap: "ラップ",
-            multi: "マルチ",
-          },
-        };
+          const talentLabels = {
+            ko: { vocal: "보컬", dance: "댄스", rap: "랩", multi: "멀티" },
+            en: { vocal: "Vocal", dance: "Dance", rap: "Rap", multi: "Multi" },
+            zh: { vocal: "声乐", dance: "舞蹈", rap: "说唱", multi: "多才艺" },
+            ja: {
+              vocal: "ボーカル",
+              dance: "ダンス",
+              rap: "ラップ",
+              multi: "マルチ",
+            },
+          };
 
-        const fieldLabels = {
-          ko: {
-            name: "이름",
-            birthdate: "생년월일",
-            gender: "성별",
-            email: "이메일",
-            phone: "연락처",
-            talent: "지원 분야",
-            experience: "경력 및 자기소개",
-            portfolio: "포트폴리오 링크",
-          },
-          en: {
-            name: "Name",
-            birthdate: "Date of Birth",
-            gender: "Gender",
-            email: "Email",
-            phone: "Phone Number",
-            talent: "Application Field",
-            experience: "Experience & Self-Introduction",
-            portfolio: "Portfolio Link",
-          },
-          zh: {
-            name: "姓名",
-            birthdate: "出生日期",
-            gender: "性别",
-            email: "电子邮件",
-            phone: "联系电话",
-            talent: "申请领域",
-            experience: "经历及自我介绍",
-            portfolio: "作品集链接",
-          },
-          ja: {
-            name: "お名前",
-            birthdate: "生年月日",
-            gender: "性別",
-            email: "メールアドレス",
-            phone: "連絡先電話番号",
-            talent: "応募分野",
-            experience: "経歴及び自己紹介",
-            portfolio: "ポートフォリオリンク",
-          },
-        };
+          const fieldLabels = {
+            ko: {
+              name: "이름",
+              birthdate: "생년월일",
+              gender: "성별",
+              email: "이메일",
+              phone: "연락처",
+              talent: "지원 분야",
+              experience: "경력 및 자기소개",
+              portfolio: "포트폴리오 링크",
+            },
+            en: {
+              name: "Name",
+              birthdate: "Date of Birth",
+              gender: "Gender",
+              email: "Email",
+              phone: "Phone Number",
+              talent: "Application Field",
+              experience: "Experience & Self-Introduction",
+              portfolio: "Portfolio Link",
+            },
+            zh: {
+              name: "姓名",
+              birthdate: "出生日期",
+              gender: "性别",
+              email: "电子邮件",
+              phone: "联系电话",
+              talent: "申请领域",
+              experience: "经历及自我介绍",
+              portfolio: "作品集链接",
+            },
+            ja: {
+              name: "お名前",
+              birthdate: "生年月日",
+              gender: "性別",
+              email: "メールアドレス",
+              phone: "連絡先電話番号",
+              talent: "応募分野",
+              experience: "経歴及び自己紹介",
+              portfolio: "ポートフォリオリンク",
+            },
+          };
 
-        const emailSubject = encodeURIComponent(
-          emailSubjects[currentLang] || emailSubjects.ko
-        );
-        const fields = fieldLabels[currentLang] || fieldLabels.ko;
-        const genders = genderLabels[currentLang] || genderLabels.ko;
-        const talents = talentLabels[currentLang] || talentLabels.ko;
+          const emailSubject = encodeURIComponent(
+            emailSubjects[currentLang] || emailSubjects.ko
+          );
+          const fields = fieldLabels[currentLang] || fieldLabels.ko;
+          const genders = genderLabels[currentLang] || genderLabels.ko;
+          const talents = talentLabels[currentLang] || talentLabels.ko;
 
-        let emailBody = `${emailSubjects[currentLang] || emailSubjects.ko}\n\n`;
-        emailBody += `${fields.name}: ${data.name}\n`;
-        emailBody += `${fields.birthdate}: ${data.birthdate}\n`;
-        emailBody += `${fields.gender}: ${
-          genders[data.gender] || data.gender
-        }\n`;
-        emailBody += `${fields.email}: ${data.email}\n`;
-        emailBody += `${fields.phone}: ${data.phone}\n`;
-        emailBody += `${fields.talent}: ${
-          talents[data.talent] || data.talent
-        }\n`;
-        emailBody += `${fields.experience}:\n${data.experience}\n`;
-        if (data.portfolio) {
-          emailBody += `${fields.portfolio}: ${data.portfolio}\n`;
-        }
+          let emailBody = `${
+            emailSubjects[currentLang] || emailSubjects.ko
+          }\n\n`;
+          emailBody += `${fields.name}: ${data.name}\n`;
+          emailBody += `${fields.birthdate}: ${data.birthdate}\n`;
+          emailBody += `${fields.gender}: ${
+            genders[data.gender] || data.gender
+          }\n`;
+          emailBody += `${fields.email}: ${data.email}\n`;
+          emailBody += `${fields.phone}: ${data.phone}\n`;
+          emailBody += `${fields.talent}: ${
+            talents[data.talent] || data.talent
+          }\n`;
+          emailBody += `${fields.experience}:\n${data.experience}\n`;
+          if (data.portfolio) {
+            emailBody += `${fields.portfolio}: ${data.portfolio}\n`;
+          }
 
-        // mailto: 링크 생성
-        const mailtoLink = `mailto:durienter@naver.com?subject=${emailSubject}&body=${encodeURIComponent(
-          emailBody
-        )}`;
+          // mailto: 링크 생성
+          const mailtoLink = `mailto:durienter@naver.com?subject=${emailSubject}&body=${encodeURIComponent(
+            emailBody
+          )}`;
 
-        // 이메일 클라이언트 열기
-        window.location.href = mailtoLink;
+          // 이메일 클라이언트 열기
+          window.location.href = mailtoLink;
 
-        // 성공 메시지 표시
-        auditionForm.style.display = "none";
-        formSuccess.style.display = "block";
+          // 성공 메시지 표시
+          auditionForm.style.display = "none";
+          formSuccess.style.display = "block";
 
-        // 3초 후 모달 닫기
-        setTimeout(() => {
-          closeModal();
-          auditionForm.style.display = "block";
-          formSuccess.style.display = "none";
-          auditionForm.reset();
-          changeLanguage(currentLang); // 언어 다시 적용
-        }, 3000);
+          // 3초 후 모달 닫기
+          setTimeout(() => {
+            closeModal();
+            auditionForm.style.display = "block";
+            formSuccess.style.display = "none";
+            auditionForm.reset();
+            changeLanguage(currentLang); // 언어 다시 적용
+          }, 3000);
         });
       }
 
@@ -1294,9 +1329,36 @@
       const mobileToggle = document.querySelector(".mobile-menu-toggle");
       const navMenu = document.querySelector(".nav-menu");
 
-      mobileToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isActive = navMenu.classList.toggle("active");
+          mobileToggle.classList.toggle("active", isActive);
+          document.body.style.overflow = isActive ? "hidden" : "";
+        });
+
+        // 메뉴 링크 클릭시 메뉴 닫기
+        navMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            mobileToggle.classList.remove("active");
+            document.body.style.overflow = "";
+          });
+        });
+
+        // 외부 클릭시 메뉴 닫기
+        document.addEventListener("click", (e) => {
+          if (
+            navMenu.classList.contains("active") &&
+            !navMenu.contains(e.target) &&
+            !mobileToggle.contains(e.target)
+          ) {
+            navMenu.classList.remove("active");
+            mobileToggle.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      }
     </script>
   </body>
 </html>
