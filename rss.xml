@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>두리엔터테인먼트 | DURI Entertainment</title>
+    <link>https://www.durientertainment.com</link>
+    <description>두리엔터테인먼트(DURI Entertainment) 공식 홈페이지. 차세대 버추얼 아이돌 프로젝트, 오디션, 아티스트 정보 제공.</description>
+    <language>ko</language>
+    <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+    <lastBuildDate>Mon, 12 Jan 2026 00:00:00 +0900</lastBuildDate>
+    <atom:link href="https://www.durientertainment.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>두리엔터테인먼트 | DURI Entertainment</title>
+      <link>https://www.durientertainment.com/</link>
+      <description>두리엔터테인먼트 공식 홈페이지 메인</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/</guid>
+    </item>
+    <item>
+      <title>About - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/about.html</link>
+      <description>두리엔터테인먼트 소개</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/about.html</guid>
+    </item>
+    <item>
+      <title>Live - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/live.html</link>
+      <description>라이브 방송 정보</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/live.html</guid>
+    </item>
+    <item>
+      <title>Members - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/members.html</link>
+      <description>아티스트 멤버 소개</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/members.html</guid>
+    </item>
+    <item>
+      <title>Music - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/music.html</link>
+      <description>발매 음원 및 뮤직비디오</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/music.html</guid>
+    </item>
+    <item>
+      <title>Project - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/project.html</link>
+      <description>진행 중인 프로젝트</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/project.html</guid>
+    </item>
+    <item>
+      <title>Shop - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/shop.html</link>
+      <description>굿즈 샵</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/shop.html</guid>
+    </item>
+    <item>
+      <title>Vote - DURI Entertainment</title>
+      <link>https://www.durientertainment.com/vote.html</link>
+      <description>투표 참여</description>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0900</pubDate>
+      <guid>https://www.durientertainment.com/vote.html</guid>
+    </item>
+  </channel>
+</rss>
