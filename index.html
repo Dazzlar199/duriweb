@@ -618,12 +618,47 @@
           padding: 20px 15px;
         }
       }
+
+      /* 음소거 해제 버튼 */
+      .unmute-btn {
+        position: fixed;
+        bottom: 80px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .unmute-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .unmute-btn {
+          bottom: 70px;
+          right: 20px;
+          width: 45px;
+          height: 45px;
+          font-size: 20px;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- 배경 영상 -->
     <div class="video-background">
-      <video autoplay loop playsinline>
+      <video id="bgVideo" autoplay muted loop playsinline preload="auto">
         <source src="/public/audition_v3.mp4" type="video/mp4" />
       </video>
     </div>
@@ -675,6 +710,11 @@
         >
       </div>
     </div>
+
+    <!-- 음소거 해제 버튼 -->
+    <button class="unmute-btn" id="unmuteBtn" title="클릭하여 소리 켜기">
+      🔇
+    </button>
 
     <footer>
       <p>ⓒDURI Entertainment ALL RIGHTS RESERVED.</p>
@@ -1171,6 +1211,24 @@
       if (langDropdown) {
         document.addEventListener("click", () => {
           langDropdown.classList.remove("active");
+        });
+      }
+
+      // 배경 영상 음소거 해제 기능
+      const bgVideo = document.getElementById("bgVideo");
+      const unmuteBtn = document.getElementById("unmuteBtn");
+
+      if (bgVideo && unmuteBtn) {
+        unmuteBtn.addEventListener("click", () => {
+          if (bgVideo.muted) {
+            bgVideo.muted = false;
+            unmuteBtn.textContent = "🔊";
+            unmuteBtn.title = "클릭하여 소리 끄기";
+          } else {
+            bgVideo.muted = true;
+            unmuteBtn.textContent = "🔇";
+            unmuteBtn.title = "클릭하여 소리 켜기";
+          }
         });
       }
     </script>
